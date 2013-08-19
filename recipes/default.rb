@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-case node[:platform]
+case node["platform"]
 when "centos"
   if node["platform"] =="centos" && node["platform_version"][0] == "5"
     include_recipe "yum::remi"
