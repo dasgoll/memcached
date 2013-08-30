@@ -6,11 +6,12 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+if node["platform"] =="centos" && node["platform_version"][0] == "5"
+  include_recipe "yum::remi"
+end
+
 case node[:platform]
-when "centos"
-  if node["platform"] =="centos" && node["platform_version"][0] == "5"
-    include_recipe "yum::remi"
-  end
+when "centos", "redhat", "amazon", "scientific", "fedora"
 
   package "memcached" do
     action :install
