@@ -4,8 +4,9 @@
 #
 # Copyright 2013, Ryutaro YOSHIBA 
 #
-# All rights reserved - Do Not Redistribute
-#
+# This software is released under the MIT License.
+# http://opensource.org/licenses/mit-license.php
+
 if node["platform"] =="centos" && node["platform_version"][0] == "5"
   include_recipe "yum::remi"
 end
@@ -29,3 +30,5 @@ when "centos", "redhat", "amazon", "scientific", "fedora"
     action [:enable, :start]
   end
 end
+
+# vim: filetype=ruby.chef
