@@ -3,20 +3,10 @@ if RUBY_VERSION =~ /1.9/
   Encoding.default_internal = Encoding::UTF_8
 end
 
-require 'serverspec'
-include Serverspec::Helper::Exec
-include Serverspec::Helper::DetectOS
-
-RSpec.configure do |c|
-  c.before :all do
-    c.os = backend(Serverspec::Commands::Base).check_os
-  end
-  c.path = "/sbin:/usr/sbin"
-end
+require 'spec_helper'
 
 describe package('memcached') do
   it { should be_installed }
-
 end
 
 describe service('memcached') do
